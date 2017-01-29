@@ -1,7 +1,30 @@
 #Assembly programming - 64 bit linux (NASM)
 
+####understanding cpu architecture
+Registers eax, ebx, ecx, edx, ebp, esp, esi, and edi are
+now 64-bit: rax, rbx, rcx, rdx, rbp, rsp, rsi, rdi
+• The new general-purpose registers are r8, r9, r10, r11,
+r12, r13, r14, and r15 — these are also available in
+32-bit flavors r8d–r15d
+• Most of the time, operands that are smaller than 64 bits
+zero-extend to 64 bits
+• The default operand size is 32 bits — except when
+pushing/popping the stack: that’s 64- or 16-bit only
 
 
+####purpose of registers ([Reference](https://en.wikipedia.org/wiki/X86))
+Although the main registers (with the exception of the instruction pointer) are "general-purpose" in the 32-bit and 64-bit versions of the instruction set and can be used for anything, it was originally envisioned that they be used for the following purposes:
+```assembly
+AL/AH/AX/EAX/RAX: Accumulator
+BL/BH/BX/EBX/RBX: Base index (for use with arrays)
+CL/CH/CX/ECX/RCX: Counter (for use with loops and strings)
+DL/DH/DX/EDX/RDX: Extend the precision of the accumulator (e.g. combine 32-bit EAX and EDX for 64-bit integer operations in 32-bit code)
+SI/ESI/RSI: Source index for string operations.
+DI/EDI/RDI: Destination index for string operations.
+SP/ESP/RSP: Stack pointer for top address of the stack.
+BP/EBP/RBP: Stack base pointer for holding the address of the current stack frame.
+IP/EIP/RIP: Instruction pointer. Holds the program counter, the current instruction address.
+```
 ####Hello World
 
 ```assembly
