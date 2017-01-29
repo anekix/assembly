@@ -1,5 +1,30 @@
 #Assembly programming - 64 bit linux (NASM)
 
+
+
+####Hello World
+
+```assembly
+;nasm -felf64 hello.asm && ld hello.o && ./a.out
+
+        global  _start
+
+        section .text
+_start:
+        ; write(1, message, 13)
+        mov     rax, 1                  ; system call 1 is write
+        mov     rdi, 1                  ; file handle 1 is stdout
+        mov     rsi, message            ; address of string to output
+        mov     rdx, 13                 ; number of bytes
+        syscall                         ; invoke operating system to do the write
+
+        ; exit(0)
+        mov     eax, 60                 ; system call 60 is exit
+        xor     rdi, rdi                ; exit code 0
+        syscall                         ; invoke operating system to exit
+message:
+        db      "Hello, World", 10      ; note the newline at the end
+```
 Pseudo-Instructions ([Reference](http://www.nasm.us/doc/nasmdoc3.html#section-3.2))
 
 Pseudo-instructions are things which, though not real x86 machine instructions, are used in the instruction field anyway because that's the most convenient place to put them. The current pseudo-instructions are DB, DW, DD, DQ, DT, DO, DY and DZ; their uninitialized counterparts RESB, RESW, RESD, RESQ, REST, RESO, RESY and RESZ; the INCBIN command, the EQU command, and the TIMES prefix.
