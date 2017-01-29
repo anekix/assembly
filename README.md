@@ -12,7 +12,7 @@ zero-extend to 64 bits
 pushing/popping the stack: that’s 64- or 16-bit only
 
 
-####purpose of registers ([Reference](https://en.wikipedia.org/wiki/X86))
+#### purpose of registers ([Reference](https://en.wikipedia.org/wiki/X86))
 Although the main registers (with the exception of the instruction pointer) are "general-purpose" in the 32-bit and 64-bit versions of the instruction set and can be used for anything, it was originally envisioned that they be used for the following purposes:
 ```assembly
 AL/AH/AX/EAX/RAX: Accumulator
@@ -25,7 +25,7 @@ SP/ESP/RSP: Stack pointer for top address of the stack.
 BP/EBP/RBP: Stack base pointer for holding the address of the current stack frame.
 IP/EIP/RIP: Instruction pointer. Holds the program counter, the current instruction address.
 ```
-####Hello World
+#### Hello World
 
 ```assembly
 ;nasm -felf64 hello.asm && ld hello.o && ./a.out
@@ -48,7 +48,7 @@ _start:
 message:
         db      "Hello, World", 10      ; note the newline at the end
 ```
-Pseudo-Instructions ([Reference](http://www.nasm.us/doc/nasmdoc3.html#section-3.2))
+#### Pseudo-Instructions ([Reference](http://www.nasm.us/doc/nasmdoc3.html#section-3.2))
 
 Pseudo-instructions are things which, though not real x86 machine instructions, are used in the instruction field anyway because that's the most convenient place to put them. The current pseudo-instructions are DB, DW, DD, DQ, DT, DO, DY and DZ; their uninitialized counterparts RESB, RESW, RESD, RESQ, REST, RESO, RESY and RESZ; the INCBIN command, the EQU command, and the TIMES prefix.
 
@@ -89,7 +89,7 @@ zmmvals:        resz    32              ; 32 ZMM registers
 
 NASM understands four different types of constant: numeric, character, string and floating-point.
 
-3.4.1 Numeric Constants
+#### Numeric Constants
 
 A numeric constant is simply a number. NASM allows you to specify numbers in a variety of number bases, in a variety of ways: you can suffix H or X, D or T, Q or O, and B or Y for hexadecimal, decimal, octal and binary respectively, or you can prefix 0x, for hexadecimal in the style of C, or you can prefix $ for hexadecimal in the style of Borland Pascal or Motorola Assemblers. Note, though, that the $ prefix does double duty as a prefix on identifiers (see section 3.1), so a hex number prefixed with a $ sign must have a digit after the $ rather than a letter. In addition, current versions of NASM accept the prefix 0h for hexadecimal, 0d or 0t for decimal, 0o or 0q for octal, and 0b or 0y for binary. Please note that unlike C, a 0 prefix by itself does not imply an octal constant!
 
