@@ -46,7 +46,7 @@ A numeric constant is simply a number. NASM allows you to specify numbers in a v
 Numeric constants can have underscores (_) interspersed to break up long strings.
 
 Some examples (all producing exactly the same code):
-
+```assembly
         mov     ax,200          ; decimal 
         mov     ax,0200         ; still decimal 
         mov     ax,0200d        ; explicitly decimal 
@@ -64,3 +64,4 @@ Some examples (all producing exactly the same code):
         mov     ax,1100_1000y   ; same binary constant once more 
         mov     ax,0b1100_1000  ; same binary constant yet again 
         mov     ax,0y1100_1000  ; same binary constant yet again
+```
