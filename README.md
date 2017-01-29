@@ -8,6 +8,15 @@ available in 32-bit flavors r8d–r15d
 ```
 Most of the time, operands that are smaller than 64 bits zero-extend to 64 bits
 
+#### Data Types
+The fundamental data types are:<br>
+`bytes` - eight bits,<br>
+`words` - a word is 2 bytes<br>
+`doublewords` - a doubleword is 4 bytes<br>
+`quadwords` - a quadword is 8 bytes<br>
+`double quadwords` - a double quadword is 16 bytes (128 bits) <br>
+
+
 
 
 #### purpose of registers ([Reference](https://en.wikipedia.org/wiki/X86))
