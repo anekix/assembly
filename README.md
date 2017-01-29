@@ -1,15 +1,13 @@
 #Assembly programming - 64 bit linux (NASM)
 
 ####understanding cpu architecture
-Registers eax, ebx, ecx, edx, ebp, esp, esi, and edi are
-now 64-bit: rax, rbx, rcx, rdx, rbp, rsp, rsi, rdi
-• The new general-purpose registers are r8, r9, r10, r11,
-r12, r13, r14, and r15 — these are also available in
-32-bit flavors r8d–r15d
-• Most of the time, operands that are smaller than 64 bits
-zero-extend to 64 bits
-• The default operand size is 32 bits — except when
-pushing/popping the stack: that’s 64- or 16-bit only
+64-bit registers are :
+```assembly
+rax, rbx, rcx, rdx, rbp, rsp, rsi, rdi, r8, r9, r10, r11, r12, r13, r14, and r15 — these are also 
+available in 32-bit flavors r8d–r15d
+```
+Most of the time, operands that are smaller than 64 bits zero-extend to 64 bits
+
 
 
 #### purpose of registers ([Reference](https://en.wikipedia.org/wiki/X86))
